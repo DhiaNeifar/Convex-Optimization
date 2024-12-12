@@ -1,6 +1,3 @@
-import numpy as np
-import time
-
 from utils import InitDisplay, InitFunction, DisplayResult
 from Functions import QuadraticFunction
 from GradientDescent import GradientDescent
@@ -16,7 +13,7 @@ def Optimization():
                         "(x - 5)² + (y + 7)² + (z - 100)²",
                         "x² + y² + z² - 98"]
     Functions = [lambda x, y, z: x ** 2 + y ** 2 + z ** 2,
-                 lambda x, y, z: (x ** 2 - 5) + (y ** 2 + 7) + (z ** 2 - 100),
+                 lambda x, y, z: (x - 5) ** 2 + (y + 7) ** 2 + (z - 100) ** 2,
                  lambda x, y, z: x ** 2 + y ** 2 + z ** 2 - 98]
 
 

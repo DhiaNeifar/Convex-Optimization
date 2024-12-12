@@ -56,7 +56,7 @@ def DisplayResults(OptimalVector, OptimalResult, NumberIterations, GDAlgEndTime,
                         
                         Number of Iterations --> {NumberIterations}
                         
-                        Convergence Speed in Seconds --> {GDAlgEndTime - GDAlgStartTime}
+                        Convergence Speed in Seconds --> {round(GDAlgEndTime - GDAlgStartTime, 3)}
                         
     """
     print(ColorText("b", ResultsMessages))
