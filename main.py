@@ -12,8 +12,13 @@ def Optimization():
 
     InitDisplay()
 
-    DisplayFunctions = ["x² + y² + z²", "(x - 5)² + (y + 7)² + (z - 100)²", "x² + y² + z² - 98"]
-    Functions = [lambda x, y, z: (x ** 2 - 5) + (y ** 2 + 7) + (z ** 2 - 100)]
+    DisplayFunctions = ["x² + y² + z²",
+                        "(x - 5)² + (y + 7)² + (z - 100)²",
+                        "x² + y² + z² - 98"]
+    Functions = [lambda x, y, z: x ** 2 + y ** 2 + z ** 2,
+                 lambda x, y, z: (x ** 2 - 5) + (y ** 2 + 7) + (z ** 2 - 100),
+                 lambda x, y, z: x ** 2 + y ** 2 + z ** 2 - 98]
+
 
     dimension = 3
     LB, UB = -5, 5
