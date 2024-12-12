@@ -1,16 +1,45 @@
-# This is a sample Python script.
+import numpy as np
+import time
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from utils import InitDisplay, InitFunction, DisplayResult
+from Functions import QuadraticFunction
+from GradientDescent import GradientDescent
+from GeneticAlgorithm import GeneticAlgorithm
 
 
-# Press the green button in the gutter to run the script.
+
+def Optimization():
+
+    InitDisplay()
+
+    DisplayFunctions = ["x² + y² + z²", "(x - 5)² + (y + 7)² + (z - 100)²", "x² + y² + z² - 98"]
+    Functions = [lambda x, y, z: (x ** 2 - 5) + (y ** 2 + 7) + (z ** 2 - 100)]
+
+    dimension = 3
+    LB, UB = -5, 5
+
+    for index, function in enumerate(Functions):
+        InitFunction(DisplayFunctions[index])
+        quad_func = QuadraticFunction(function)
+        GDParameters = {
+            "UB": UB,
+            "LB": LB,
+            "dimension": dimension,
+            "learning_rate": 0.1,
+            "tolerance": 1e-6,
+            "max_iterations": 1000,
+        }
+        DisplayResult(quad_func, GradientDescent, "Gradient Descent", GDParameters)
+        GAParameters = {
+            "UB": UB,
+            "LB": LB,
+            "dimension": dimension,
+            "pop_size": 100,
+            "generations": 1000,
+            "mutation_rate": 0.01,
+        }
+        DisplayResult(quad_func, GeneticAlgorithm, "Genetic Algorithm", GAParameters)
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    Optimization()
